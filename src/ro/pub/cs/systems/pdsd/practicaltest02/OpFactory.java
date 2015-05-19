@@ -17,18 +17,23 @@ public class OpFactory extends Thread{
 		int result;
 		op1 = Integer.parseInt(command[1]);
 		op2 = Integer.parseInt(command[2]);
-		if (command[0].equals("add")) {
-			result = op1 + op2;
-			
-		} else {
-			result = op1 * op2;
-		}
+		
 		try {
+			if (command[0].equals("add")) {
+				result = op1 + op2;
+				
+			} else {
+				this.sleep(100);
+				result = op1 * op2;
+			}
 			PrintWriter out =
 			        new PrintWriter(socket.getOutputStream(), true);
 			out.println(result);
 			this.socket.close();
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
