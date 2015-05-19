@@ -23,7 +23,6 @@ public class OpFactory extends Thread{
 				result = op1 + op2;
 				
 			} else {
-				this.sleep(100);
 				result = op1 * op2;
 			}
 			PrintWriter out =
@@ -31,9 +30,6 @@ public class OpFactory extends Thread{
 			out.println(result);
 			this.socket.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
